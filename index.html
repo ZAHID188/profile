@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Company Profile - Premium Shoes Factory</title>
+    <title>Premium Shoes Factory - Home</title>
     <style>
         * {
             margin: 0;
@@ -17,6 +17,7 @@
             color: #333;
         }
 
+        /* Header & Navigation */
         header {
             background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
             color: white;
@@ -107,120 +108,49 @@
             cursor: pointer;
         }
 
-        .page-header {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23333" width="1200" height="400"/></svg>');
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23333" width="1200" height="600"/><path fill="%23444" d="M0 300L50 283.3C100 266.7 200 233.3 300 216.7C400 200 500 200 600 216.7C700 233.3 800 266.7 900 283.3C1000 300 1100 300 1150 300L1200 300L1200 601L1150 601C1100 601 1000 601 900 601C800 601 700 601 600 601C500 601 400 601 300 601C200 601 100 601 50 601L0 601Z"/></svg>');
             background-size: cover;
             background-position: center;
             color: white;
-            padding: 150px 0 80px;
+            padding: 180px 0 100px;
             text-align: center;
             margin-top: 100px;
         }
 
-        .page-header h1 {
+        .hero h1 {
             font-size: 48px;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+            animation: fadeInUp 1s;
         }
 
-        .company-intro {
-            padding: 80px 0;
-            background: white;
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s 0.2s backwards;
         }
 
-        .intro-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-        }
-
-        .intro-image {
-            width: 100%;
-            height: 400px;
-            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 100px;
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #ff6b6b;
             color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid #ff6b6b;
+            animation: fadeInUp 1s 0.4s backwards;
         }
 
-        .intro-text h2 {
-            font-size: 36px;
-            margin-bottom: 20px;
-            color: #1a1a1a;
+        .btn:hover {
+            background: transparent;
+            transform: translateY(-2px);
         }
 
-        .intro-text p {
-            margin-bottom: 15px;
-            color: #666;
-            line-height: 1.8;
-            font-size: 16px;
-        }
-
-        .stats {
-            padding: 80px 0;
-            background: #f9f9f9;
-        }
-
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-        }
-
-        .stat-card {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .stat-number {
-            font-size: 48px;
-            font-weight: bold;
-            color: #ff6b6b;
-            margin-bottom: 10px;
-        }
-
-        .stat-label {
-            font-size: 18px;
-            color: #666;
-        }
-
-        .mission-vision {
-            padding: 80px 0;
-            background: white;
-        }
-
-        .mv-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-top: 40px;
-        }
-
-        .mv-card {
-            background: #f9f9f9;
-            padding: 40px;
-            border-radius: 10px;
-            border-left: 5px solid #ff6b6b;
-        }
-
-        .mv-card h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
-            color: #1a1a1a;
-        }
-
-        .mv-card p {
-            color: #666;
-            line-height: 1.8;
-        }
-
-        .capabilities {
+        /* Features Section */
+        .features {
             padding: 80px 0;
             background: #f9f9f9;
         }
@@ -232,35 +162,80 @@
             color: #1a1a1a;
         }
 
-        .capabilities-grid {
+        .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
+            margin-top: 40px;
         }
 
-        .capability-card {
+        .feature-card {
             background: white;
-            padding: 30px;
+            padding: 40px 30px;
             border-radius: 10px;
+            text-align: center;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
         }
 
-        .capability-icon {
-            font-size: 40px;
-            margin-bottom: 15px;
+        .feature-card:hover {
+            transform: translateY(-10px);
         }
 
-        .capability-card h3 {
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
             font-size: 22px;
             margin-bottom: 15px;
             color: #1a1a1a;
         }
 
-        .capability-card p {
+        .feature-card p {
             color: #666;
             line-height: 1.8;
         }
 
+        /* About Preview */
+        .about-preview {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            color: white;
+        }
+
+        .about-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Footer */
         footer {
             background: #1a1a1a;
             color: white;
@@ -298,6 +273,19 @@
             color: #999;
         }
 
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Mobile Responsive */
         @media (max-width: 768px) {
             .nav-links {
                 position: fixed;
@@ -324,12 +312,20 @@
                 display: block;
             }
 
-            .page-header h1 {
+            .hero {
+                padding: 120px 0 60px;
+                margin-top: 100px;
+            }
+
+            .hero h1 {
                 font-size: 32px;
             }
 
-            .intro-content,
-            .mv-grid {
+            .hero p {
+                font-size: 16px;
+            }
+
+            .about-content {
                 grid-template-columns: 1fr;
             }
 
@@ -352,14 +348,22 @@
 </head>
 <body>
     <header>
-        
+        <div class="header-top">
+            <div class="container">
+                <div class="contact-info">
+                    <a href="tel:+1234567890">📞 +123 456 7890</a>
+                    <a href="mailto:info@shoesfactory.com">✉️ info@shoesfactory.com</a>
+                </div>
+                <div>🌍 Manufacturing Excellence Since 1990</div>
+            </div>
+        </div>
         <nav>
             <div class="container nav-container">
                 <a href="index.html" class="logo">Shoes<span>Factory</span></a>
                 <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
                 <ul class="nav-links" id="navLinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="company.html" class="active">Company Profile</a></li>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="company.html">Company Profile</a></li>
                     <li><a href="products.html">Products</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
@@ -367,100 +371,51 @@
         </nav>
     </header>
 
-    <section class="page-header">
+    <section class="hero">
         <div class="container">
-            <h1>Company Profile</h1>
-            <p>Excellence in Footwear Manufacturing</p>
+            <h1>Premium Footwear Manufacturing</h1>
+            <p>Crafting Quality Shoes with Precision and Passion</p>
+            <a href="products.html" class="btn">Explore Our Products</a>
         </div>
     </section>
 
-    <section class="company-intro">
+    <section class="features">
         <div class="container">
-            <div class="intro-content">
-                <div class="intro-image">🏭</div>
-                <div class="intro-text">
-                    <h2>Our Story</h2>
-                    <p>Founded in 1990, our factory has grown from a small workshop to one of the leading footwear manufacturers in the region. We specialize in producing high-quality shoes for various market segments, from casual wear to formal and sports footwear.</p>
-                    <p>Our success is built on a foundation of skilled craftsmanship, cutting-edge technology, and an unwavering commitment to quality. We work with premium materials and employ rigorous quality control measures to ensure every pair of shoes meets the highest standards.</p>
-                    <p>Today, we serve clients across multiple continents, producing millions of pairs annually while maintaining our dedication to excellence and customer satisfaction.</p>
+            <h2 class="section-title">Why Choose Us</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Fast Production</h3>
+                    <p>State-of-the-art manufacturing facilities ensuring quick turnaround times without compromising quality.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>Premium Quality</h3>
+                    <p>Every pair undergoes rigorous quality control to meet international standards and exceed expectations.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌍</div>
+                    <h3>Global Reach</h3>
+                    <p>Serving clients worldwide with efficient logistics and reliable delivery networks across continents.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">♻️</div>
+                    <h3>Sustainable</h3>
+                    <p>Committed to eco-friendly practices and sustainable materials for a better future.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="stats">
+    <section class="about-preview">
         <div class="container">
-            <h2 class="section-title">Our Achievements</h2>
-            <div class="stats-grid">
-                <div class="stat-card">
-                    <div class="stat-number">30+</div>
-                    <div class="stat-label">Years of Experience</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">5M+</div>
-                    <div class="stat-label">Pairs Annually</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">50+</div>
-                    <div class="stat-label">Countries Served</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-number">500+</div>
-                    <div class="stat-label">Skilled Workers</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="mission-vision">
-        <div class="container">
-            <h2 class="section-title">Mission & Vision</h2>
-            <div class="mv-grid">
-                <div class="mv-card">
-                    <h3>🎯 Our Mission</h3>
-                    <p>To manufacture premium quality footwear that combines comfort, durability, and style while maintaining ethical manufacturing practices and sustainable operations. We strive to exceed customer expectations through continuous innovation and exceptional service.</p>
-                </div>
-                <div class="mv-card">
-                    <h3>🔭 Our Vision</h3>
-                    <p>To be recognized globally as a leader in footwear manufacturing, known for our commitment to quality, innovation, and sustainability. We envision a future where our shoes are worn worldwide, bringing comfort and confidence to millions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="capabilities">
-        <div class="container">
-            <h2 class="section-title">Our Capabilities</h2>
-            <div class="capabilities-grid">
-                <div class="capability-card">
-                    <div class="capability-icon">🏗️</div>
-                    <h3>Advanced Facilities</h3>
-                    <p>Modern manufacturing plant equipped with state-of-the-art machinery and technology spanning over 50,000 square meters.</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon">👥</div>
-                    <h3>Skilled Workforce</h3>
-                    <p>Team of over 500 experienced professionals including designers, technicians, and quality control specialists.</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon">🎨</div>
-                    <h3>Design Studio</h3>
-                    <p>In-house design team creating innovative and trendy footwear designs tailored to market demands.</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon">✅</div>
-                    <h3>Quality Control</h3>
-                    <p>Comprehensive quality assurance system ensuring every product meets international standards and specifications.</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon">🚚</div>
-                    <h3>Logistics Network</h3>
-                    <p>Efficient supply chain management with partnerships ensuring timely delivery to clients worldwide.</p>
-                </div>
-                <div class="capability-card">
-                    <div class="capability-icon">🌱</div>
-                    <h3>Sustainability</h3>
-                    <p>Commitment to eco-friendly practices including waste reduction, energy efficiency, and sustainable material sourcing.</p>
+            <div class="about-content">
+                <div class="about-image">👟</div>
+                <div class="about-text">
+                    <h2>About Our Factory</h2>
+                    <p>With over 30 years of experience in footwear manufacturing, we have established ourselves as a trusted partner for brands worldwide. Our commitment to excellence and innovation drives everything we do.</p>
+                    <p>From classic designs to contemporary styles, we manufacture a diverse range of footwear that combines comfort, durability, and aesthetic appeal.</p>
+                    <a href="company.html" class="btn">Learn More About Us</a>
                 </div>
             </div>
         </div>
@@ -499,8 +454,11 @@
             navLinks.classList.toggle('active');
         }
 
+        // Close mobile menu when clicking outside
         document.addEventListener('click', function(event) {
             const navLinks = document.getElementById('navLinks');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
             if (!event.target.closest('nav')) {
                 navLinks.classList.remove('active');
             }
