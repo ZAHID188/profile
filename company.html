@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Company Profile - Premium Shoes Factory</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: white;
+            padding: 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-top {
+            background: #000;
+            padding: 10px 0;
+            font-size: 14px;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 20px;
+        }
+
+        .contact-info a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        nav {
+            padding: 15px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: #ff6b6b;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 5px 0;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #ff6b6b;
+            border-bottom: 2px solid #ff6b6b;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        .page-header {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 400"><rect fill="%23333" width="1200" height="400"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .page-header h1 {
+            font-size: 48px;
+            margin-bottom: 10px;
+        }
+
+        .company-intro {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .intro-image {
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 100%);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100px;
+            color: white;
+        }
+
+        .intro-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .intro-text p {
+            margin-bottom: 15px;
+            color: #666;
+            line-height: 1.8;
+            font-size: 16px;
+        }
+
+        .stats {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff6b6b;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: #666;
+        }
+
+        .mission-vision {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .mv-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .mv-card {
+            background: #f9f9f9;
+            padding: 40px;
+            border-radius: 10px;
+            border-left: 5px solid #ff6b6b;
+        }
+
+        .mv-card h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #1a1a1a;
+        }
+
+        .mv-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .capabilities {
+            padding: 80px 0;
+            background: #f9f9f9;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #1a1a1a;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .capability-card {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .capability-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .capability-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #1a1a1a;
+        }
+
+        .capability-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        footer {
+            background: #1a1a1a;
+            color: white;
+            padding: 40px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            color: #ff6b6b;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-section a:hover {
+            color: #ff6b6b;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            color: #999;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                position: fixed;
+                left: -100%;
+                top: 100px;
+                flex-direction: column;
+                background: #1a1a1a;
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                padding: 20px 0;
+                gap: 0;
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .nav-links li {
+                padding: 15px 0;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .page-header h1 {
+                font-size: 32px;
+            }
+
+            .intro-content,
+            .mv-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .header-top .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .contact-info {
+                flex-direction: column;
+                gap: 5px;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="contact-info">
+                    <a href="tel:+1234567890">📞 +123 456 7890</a>
+                    <a href="mailto:info@shoesfactory.com">✉️ info@shoesfactory.com</a>
+                </div>
+                <div>🌍 Manufacturing Excellence Since 1990</div>
+            </div>
+        </div>
+        <nav>
+            <div class="container nav-container">
+                <a href="index.html" class="logo">Shoes<span>Factory</span></a>
+                <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="company.html" class="active">Company Profile</a></li>
+                    <li><a href="products.html">Products</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>Company Profile</h1>
+            <p>Excellence in Footwear Manufacturing</p>
+        </div>
+    </section>
+
+    <section class="company-intro">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-image">🏭</div>
+                <div class="intro-text">
+                    <h2>Our Story</h2>
+                    <p>Founded in 1990, our factory has grown from a small workshop to one of the leading footwear manufacturers in the region. We specialize in producing high-quality shoes for various market segments, from casual wear to formal and sports footwear.</p>
+                    <p>Our success is built on a foundation of skilled craftsmanship, cutting-edge technology, and an unwavering commitment to quality. We work with premium materials and employ rigorous quality control measures to ensure every pair of shoes meets the highest standards.</p>
+                    <p>Today, we serve clients across multiple continents, producing millions of pairs annually while maintaining our dedication to excellence and customer satisfaction.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <h2 class="section-title">Our Achievements</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Years of Experience</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5M+</div>
+                    <div class="stat-label">Pairs Annually</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">50+</div>
+                    <div class="stat-label">Countries Served</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Skilled Workers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission-vision">
+        <div class="container">
+            <h2 class="section-title">Mission & Vision</h2>
+            <div class="mv-grid">
+                <div class="mv-card">
+                    <h3>🎯 Our Mission</h3>
+                    <p>To manufacture premium quality footwear that combines comfort, durability, and style while maintaining ethical manufacturing practices and sustainable operations. We strive to exceed customer expectations through continuous innovation and exceptional service.</p>
+                </div>
+                <div class="mv-card">
+                    <h3>🔭 Our Vision</h3>
+                    <p>To be recognized globally as a leader in footwear manufacturing, known for our commitment to quality, innovation, and sustainability. We envision a future where our shoes are worn worldwide, bringing comfort and confidence to millions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="capabilities">
+        <div class="container">
+            <h2 class="section-title">Our Capabilities</h2>
+            <div class="capabilities-grid">
+                <div class="capability-card">
+                    <div class="capability-icon">🏗️</div>
+                    <h3>Advanced Facilities</h3>
+                    <p>Modern manufacturing plant equipped with state-of-the-art machinery and technology spanning over 50,000 square meters.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">👥</div>
+                    <h3>Skilled Workforce</h3>
+                    <p>Team of over 500 experienced professionals including designers, technicians, and quality control specialists.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">🎨</div>
+                    <h3>Design Studio</h3>
+                    <p>In-house design team creating innovative and trendy footwear designs tailored to market demands.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">✅</div>
+                    <h3>Quality Control</h3>
+                    <p>Comprehensive quality assurance system ensuring every product meets international standards and specifications.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">🚚</div>
+                    <h3>Logistics Network</h3>
+                    <p>Efficient supply chain management with partnerships ensuring timely delivery to clients worldwide.</p>
+                </div>
+                <div class="capability-card">
+                    <div class="capability-icon">🌱</div>
+                    <h3>Sustainability</h3>
+                    <p>Commitment to eco-friendly practices including waste reduction, energy efficiency, and sustainable material sourcing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>ShoesFactory</h3>
+                    <p>Leading footwear manufacturer delivering quality and innovation since 1990.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <a href="index.html">Home</a>
+                    <a href="company.html">Company Profile</a>
+                    <a href="products.html">Products</a>
+                    <a href="contact.html">Contact Us</a>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <p>📍 123 Industrial Zone, Manufacturing City</p>
+                    <p>📞 +123 456 7890</p>
+                    <p>✉️ info@shoesfactory.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 ShoesFactory. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        document.addEventListener('click', function(event) {
+            const navLinks = document.getElementById('navLinks');
+            if (!event.target.closest('nav')) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
